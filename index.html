@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+    
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .center-container {
+            text-align: center;
+            margin-bottom: 5%;
+        }
+
+        .center-content {
+            display: inline-block;
+        }
+
+        .imgbear {
+            max-height: 200px;
+            max-width: 200px;
+            border-radius: 40px;
+        }
+
+        p {
+            font-size: 15px;
+            height: auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid #333;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button-no {
+            background-color: #f44336;
+        }
+    </style>
+    <title>For Aditi I'm so sorry didnt mean to hurt you</title>
+</head>
+<body>
+
+<div class="center-container">
+    <div class="center-content">
+        <img src="./cute-sad-mocha-bear-im-sorry-wmj5kr8mnn3kkuhq.gif" id="bearImage" alt="Centered Image" class="imgbear">
+        <p id="para">I'm so sorryyy please forgive meee</p>
+        <button class="button" id="yesButton">Yes</button>
+        <button class="button button-no" id="noButton">No</button>
+    </div>
+</div>
+
+<script>
+    let count = 0;
+    let accepted = false;
+    let fin = 0;
+    emailjs.init("user_your_public_key");  // Replace with your Email.js public key
+
+    document.getElementById("yesButton").addEventListener("click", function() {
+        if (fin == 0){
+        document.getElementById("para").innerText = "Thank you for giving me another chance, I won't let you down";
+        document.getElementById("bearImage").src = "./bear-kiss-bear-kisses.gif";
+        accepted = true;
+
+        // Send email when 'Yes' is clicked
+        sendEmail();}
+        else{
+            document.getElementById("para").innerText = "Byee take care I'll be backk";
+        }
+    });
+
+    document.getElementById("noButton").addEventListener("click", function() {
+        if (accepted) {
+            document.getElementById("para").innerText = "You already accepted, can't go back. Stop pressing the button.";
+        } else if(count==0) {
+            document.getElementById("para").innerText = "if you want then kick me";
+            document.getElementById("bearImage").src = "./kick-bear.gif";
+            count++;
+        }
+        else if (count==1){
+            document.getElementById("para").innerText = "if you want to slap me then slap me";
+            document.getElementById("bearImage").src = "./slap-bears-stop-it.gif";
+            count++;
+        }
+        else if(count==2) {
+            document.getElementById("para").innerText = "I ran out of gif please forgive mee";
+            document.getElementById("bearImage").src = "./cute-sad-pikachu-crying-tidyz8fr1oodri28.gif";
+            count++;
+        }
+        else{
+            document.getElementById("para").innerText = "I'll find another way to make up for it";
+            document.getElementById("bearImage").src = "./crying-bear-i-am-sorry-ja750r003knx0f7o.gif";
+            fin = 1;
+            noSorry();
+            document.getElementById("noButton").style.display = "none";
+        }
+    });
+
+    function sendEmail() {
+        emailjs.send("service_9vu9ndc","template_sifdodl", {
+            to_email: "kp0109977@gmail.com",  // Replace with your email address
+            message: "She forgave you yessss"
+        }, "K_VhGkZ86eyX6jdKF");  // Replace with your Email.js private key
+    }
+    function noSorry() {
+        emailjs.send("service_9vu9ndc","template_sifdodl", {
+            to_email: "kp0109977@gmail.com",  // Replace with your email address
+            message: "find another way idiot"
+        }, "K_VhGkZ86eyX6jdKF");  // Replace with your Email.js private key
+    }
+</script>
+
+</body>
+</html>
